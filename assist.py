@@ -66,10 +66,11 @@ while "" in cmd:
 		break		
 	elif "scholar" in cmd:
 		where = cmd.find("r")
-		what = cmd[where+1:len(cmd)]
-		what = what.replace(' ','%20')
-		url = "https://scholar.google.co.in/scholar?hl=en&q="+what+"&#"
-		out = os.system("DISPLAY=:0.0 google-chrome "+url+" &")
+		what = cmd[where+2:len(cmd)]
+		what = what.replace(' ','+')
+		url = "scholar.google.co.in/scholar?q="+what+"&hl=en"
+		print "Searching google scholar for "+url
+		out = os.system("google-chrome "+url+" &")
 	elif "help me" in cmd or "i need help" in cmd:
 		print """I am programmed for these commands:
 open: I can open 'editor', 'google chrome', 'opera', 'settings' or any other website for you. 
@@ -96,6 +97,3 @@ Try these now....\n"""
 		print "Tejas Dastane is my creator.... :D"
 	elif "" in cmd: pass
 	else: print "I don't know what to do :( Maybe I will be programmed later to do so.."
-
-
-
